@@ -120,23 +120,22 @@
           </div>
         </div>
 
-        <!-- Right Side: 3D Cutout Studio Portrait + Orbiting 3D Light Satellite -->
+        <!-- Right Side: Clean Circular 3D Studio Frame + Orbiting 3D Light Satellite -->
         <div class="hero-visual-cluster reveal-up">
           <div class="orbital-ring-frame" id="portrait3dStage">
             <!-- Dedicated Real Three.js 3D Light Mini-Satellite Orbiting Profile -->
             <div id="profile-3d-sat-canvas" class="profile-3d-sat-layer" aria-hidden="true"></div>
 
-            <!-- 3D Pedestal Ring + Auto-Cutout Portrait -->
+            <!-- Clean Circular Portrait Frame -->
             <div class="portrait-3d-pedestal">
               <div class="portrait-3d-halo" aria-hidden="true"></div>
               <div class="portrait-cutout-wrapper">
                 <img
-                  id="profileSourceImg"
                   src="profile.jpg"
-                  alt="Ahmad Ali 3D Portrait"
+                  alt="Ahmad Ali Portrait"
+                  onload="document.getElementById('profilePlaceholder').style.display='none'"
                   onerror="if(!this.dataset.step){this.dataset.step='1';this.src='profile.jpeg';}else if(this.dataset.step==='1'){this.dataset.step='2';this.src='profile.png';}else{this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';}"
                 />
-                <canvas id="profileCutoutCanvas" aria-label="Ahmad Ali 3D Cutout Portrait"></canvas>
 
                 <div class="profile-slot-placeholder" id="profilePlaceholder">
                   <div class="slot-avatar-badge">
@@ -363,8 +362,10 @@
           <div class="project-photo-frame">
             <span class="project-badge">NASA Space Apps 2026</span>
             <img
+              id="projImgNasa"
               src="nasa-fieldshift.png"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=85';"
+              data-fallback-type="nasa"
+              onerror="handleProjectImgError(this)"
               alt="FieldShift NASA Earth Observation Agricultural Dashboard"
             />
             <span class="project-sensor-tag">NASA EARTHDATA &bull; D.G. KHAN</span>
@@ -383,13 +384,15 @@
           </div>
         </article>
 
-        <!-- Project 2: Digitization of Mineral Map of AJK (Final_one.pdf) -->
+        <!-- Project 2: Digitization of Mineral Map of AJK -->
         <article class="project-card reveal-up">
           <div class="project-photo-frame">
             <span class="project-badge">Cartographic Digitization</span>
             <img
+              id="projImgAjk"
               src="ajk-mineral-map.png"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=85';"
+              data-fallback-type="ajk"
+              onerror="handleProjectImgError(this)"
               alt="Digitized Mineral Map of Azad Jammu and Kashmir"
             />
             <span class="project-sensor-tag">WGS 1984 &bull; AZAD JAMMU &amp; KASHMIR</span>
@@ -413,8 +416,10 @@
           <div class="project-photo-frame">
             <span class="project-badge">Drone Imagery &amp; LULC</span>
             <img
-              src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1000&q=85"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=1000&q=85';"
+              id="projImgZanzibar"
+              src="zanzibar-lulc.png"
+              data-fallback-type="zanzibar"
+              onerror="handleProjectImgError(this)"
               alt="Aerial Coastline and Land Cover of Zanzibar, Tanzania"
             />
             <span class="project-sensor-tag">AERIAL LULC &bull; ZANZIBAR, TANZANIA</span>
@@ -513,19 +518,350 @@
     <p>&copy; 2026 Ahmad Ali &bull; GIS &amp; Remote Sensing Portfolio | <a href="https://github.com/GIS-Ahmad-Ali" target="_blank" rel="noopener">github.com/GIS-Ahmad-Ali</a></p>
   </footer>
 
-  <!-- Three.js Photorealistic 3D Earth + Soft Orbit Trails + 3D Light Profile Satellite + Auto Cutout -->
+  <!-- Built-In High-Res GIS & NASA Project Preview Renderer (Zero-Fail on Live Server & GitHub Pages) -->
+  <script>
+    function generateProjectPreviewDataUrl(type) {
+      const c = document.createElement('canvas');
+      c.width = 960;
+      c.height = 600;
+      const ctx = c.getContext('2d');
+
+      if (type === 'nasa') {
+        // 1. FieldShift — NASA Space Apps Dera Ghazi Khan Satellite & Telemetry Visual
+        const bgGrad = ctx.createLinearGradient(0, 0, 960, 600);
+        bgGrad.addColorStop(0, '#7C6244');
+        bgGrad.addColorStop(0.38, '#A68963');
+        bgGrad.addColorStop(0.55, '#2E6F40');
+        bgGrad.addColorStop(1, '#163D24');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, 960, 600);
+
+        // Western Sulaiman Mountain Ridges texture
+        for (let i = 0; i < 45; i++) {
+          ctx.strokeStyle = i % 2 === 0 ? 'rgba(65, 48, 30, 0.25)' : 'rgba(222, 198, 162, 0.18)';
+          ctx.lineWidth = 3 + (i % 4);
+          ctx.beginPath();
+          ctx.moveTo(20 + i * 9, 0);
+          ctx.bezierCurveTo(60 + i * 8, 210, 10 + i * 10, 390, 90 + i * 9, 600);
+          ctx.stroke();
+        }
+
+        // Irrigated Agricultural Crop Parcels (NDVI Mosaic)
+        const ndviColors = ['#15803D', '#16A34A', '#22C55E', '#65A30D', '#CA8A04', '#166534'];
+        for (let gx = 430; gx < 940; gx += 46) {
+          for (let gy = 20; gy < 570; gy += 34) {
+            ctx.fillStyle = ndviColors[(gx + gy) % ndviColors.length];
+            ctx.fillRect(gx + 2, gy + 2, 41, 29);
+            ctx.strokeStyle = 'rgba(255,255,255,0.16)';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(gx + 2, gy + 2, 41, 29);
+          }
+        }
+
+        // Winding Indus River Channel
+        ctx.strokeStyle = '#1D4ED8';
+        ctx.lineWidth = 34;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(510, -20);
+        ctx.bezierCurveTo(430, 160, 585, 290, 470, 440);
+        ctx.bezierCurveTo(410, 515, 505, 570, 485, 620);
+        ctx.stroke();
+
+        ctx.strokeStyle = '#60A5FA';
+        ctx.lineWidth = 10;
+        ctx.stroke();
+
+        // Satellite Swath Grid Overlay
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+        ctx.lineWidth = 1;
+        for (let x = 0; x <= 960; x += 120) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 600); ctx.stroke();
+        }
+        for (let y = 0; y <= 600; y += 120) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(960, y); ctx.stroke();
+        }
+
+        // NASA Earthdata Telemetry Card Overlay (Top Right)
+        ctx.fillStyle = 'rgba(15, 28, 52, 0.86)';
+        ctx.beginPath();
+        ctx.roundRect(575, 44, 345, 210, 18);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.24)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.fillStyle = '#38BDF8';
+        ctx.font = 'bold 15px sans-serif';
+        ctx.fillText('NASA EARTHDATA • D.G. KHAN BASIN', 598, 76);
+
+        const metrics = [
+          { label: 'Landsat 9 NDVI', val: '0.68', col: '#4ADE80' },
+          { label: 'MODIS LST', val: '31.4°C', col: '#FB923C' },
+          { label: 'SMAP Moisture', val: '24.8%', col: '#38BDF8' }
+        ];
+        metrics.forEach((m, idx) => {
+          const bx = 598 + idx * 106;
+          ctx.fillStyle = 'rgba(255,255,255,0.08)';
+          ctx.beginPath(); ctx.roundRect(bx, 92, 96, 62, 10); ctx.fill();
+          ctx.fillStyle = m.col;
+          ctx.font = 'bold 18px sans-serif';
+          ctx.fillText(m.val, bx + 10, 122);
+          ctx.fillStyle = '#CBD5E1';
+          ctx.font = '11px sans-serif';
+          ctx.fillText(m.label, bx + 10, 142);
+        });
+
+        // Mini NDVI vs LST Trend Curve
+        ctx.strokeStyle = '#4ADE80';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(602, 224);
+        ctx.lineTo(655, 206);
+        ctx.lineTo(710, 214);
+        ctx.lineTo(768, 188);
+        ctx.lineTo(830, 194);
+        ctx.lineTo(895, 174);
+        ctx.stroke();
+
+      } else if (type === 'ajk') {
+        // 2. Digitized Mineral Map of Azad Jammu & Kashmir (Matching Final_one.pdf)
+        ctx.fillStyle = '#FAF7F0';
+        ctx.fillRect(0, 0, 960, 600);
+
+        // Cartographic Neatline & Coordinate Graticule
+        ctx.strokeStyle = '#1E293B';
+        ctx.lineWidth = 2.5;
+        ctx.strokeRect(24, 22, 912, 556);
+
+        ctx.strokeStyle = 'rgba(100, 116, 139, 0.22)';
+        ctx.lineWidth = 1;
+        const lons = ["73°30'E", "74°00'E", "74°30'E", "75°00'E"];
+        lons.forEach((lbl, i) => {
+          const gx = 190 + i * 190;
+          ctx.beginPath(); ctx.moveTo(gx, 22); ctx.lineTo(gx, 578); ctx.stroke();
+          ctx.fillStyle = '#334155';
+          ctx.font = 'bold 11px sans-serif';
+          ctx.fillText(lbl, gx - 22, 592);
+        });
+        const lats = ["34°30'N", "34°00'N", "33°30'N", "33°00'N"];
+        lats.forEach((lbl, i) => {
+          const gy = 115 + i * 130;
+          ctx.beginPath(); ctx.moveTo(24, gy); ctx.lineTo(936, gy); ctx.stroke();
+          ctx.fillStyle = '#334155';
+          ctx.font = 'bold 11px sans-serif';
+          ctx.fillText(lbl, 30, gy - 5);
+        });
+
+        // AJK Geological Zones Polygon
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(495, 68);
+        ctx.lineTo(635, 84);
+        ctx.lineTo(668, 145);
+        ctx.lineTo(548, 205);
+        ctx.lineTo(465, 295);
+        ctx.lineTo(445, 425);
+        ctx.lineTo(475, 515);
+        ctx.lineTo(368, 535);
+        ctx.lineTo(302, 465);
+        ctx.lineTo(318, 345);
+        ctx.lineTo(352, 215);
+        ctx.lineTo(418, 128);
+        ctx.closePath();
+
+        const geoGrad = ctx.createLinearGradient(300, 70, 660, 530);
+        geoGrad.addColorStop(0, '#93B5C6');
+        geoGrad.addColorStop(0.35, '#A7C49F');
+        geoGrad.addColorStop(0.7, '#DFC498');
+        geoGrad.addColorStop(1, '#E29E72');
+        ctx.fillStyle = geoGrad;
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#1E293B';
+        ctx.stroke();
+
+        // District Sub-Boundaries
+        ctx.setLineDash([6, 4]);
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(352, 215); ctx.lineTo(548, 205);
+        ctx.moveTo(325, 315); ctx.lineTo(465, 295);
+        ctx.moveTo(308, 415); ctx.lineTo(445, 425);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Jhelum & Neelum Rivers + Mangla Reservoir
+        ctx.strokeStyle = '#2563EB';
+        ctx.lineWidth = 3.2;
+        ctx.beginPath();
+        ctx.moveTo(625, 92);
+        ctx.quadraticCurveTo(510, 155, 395, 198);
+        ctx.quadraticCurveTo(365, 320, 338, 458);
+        ctx.stroke();
+
+        ctx.fillStyle = '#2563EB';
+        ctx.beginPath();
+        ctx.ellipse(332, 474, 24, 15, -0.4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        // Mineral Deposit Symbols (Metallic, Industrial, Fuel, Precious)
+        const deposits = [
+          { x: 545, y: 120, c: '#DC2626', shape: 'tri' },
+          { x: 455, y: 165, c: '#DC2626', shape: 'tri' },
+          { x: 410, y: 245, c: '#1D4ED8', shape: 'sq' },
+          { x: 395, y: 345, c: '#D97706', shape: 'cir' },
+          { x: 375, y: 440, c: '#1D4ED8', shape: 'sq' },
+          { x: 422, y: 485, c: '#0F172A', shape: 'tri' }
+        ];
+        deposits.forEach(d => {
+          ctx.fillStyle = d.c;
+          if (d.shape === 'tri') {
+            ctx.beginPath();
+            ctx.moveTo(d.x, d.y - 8);
+            ctx.lineTo(d.x - 7, d.y + 6);
+            ctx.lineTo(d.x + 7, d.y + 6);
+            ctx.closePath();
+            ctx.fill();
+          } else if (d.shape === 'sq') {
+            ctx.fillRect(d.x - 6, d.y - 6, 12, 12);
+          } else {
+            ctx.beginPath(); ctx.arc(d.x, d.y, 6, 0, Math.PI * 2); ctx.fill();
+          }
+        });
+
+        // Map Title Banner (Top Left)
+        ctx.fillStyle = '#0F172A';
+        ctx.font = 'bold 17px sans-serif';
+        ctx.fillText('DIGITIZED MINERAL MAP OF', 52, 66);
+        ctx.fillStyle = '#B45309';
+        ctx.font = 'bold 20px sans-serif';
+        ctx.fillText('AZAD JAMMU & KASHMIR', 52, 92);
+        ctx.fillStyle = '#475569';
+        ctx.font = '12px sans-serif';
+        ctx.fillText('Projection: WGS 1984 • Districts & Mineral Deposits', 52, 114);
+
+        // Cartographic Legend Box (Right Side)
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+        ctx.strokeStyle = '#94A3B8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.roundRect(695, 195, 212, 225, 12); ctx.fill(); ctx.stroke();
+
+        ctx.fillStyle = '#0F172A';
+        ctx.font = 'bold 14px sans-serif';
+        ctx.fillText('MINERAL LEGEND', 714, 222);
+
+        const legItems = [
+          { label: 'Metallic Minerals', col: '#DC2626' },
+          { label: 'Industrial Minerals', col: '#1D4ED8' },
+          { label: 'Fuel & Energy', col: '#0F172A' },
+          { label: 'Precious Minerals', col: '#D97706' },
+          { label: 'Rivers & Mangla', col: '#2563EB' }
+        ];
+        legItems.forEach((item, idx) => {
+          const ly = 252 + idx * 32;
+          ctx.fillStyle = item.col;
+          ctx.fillRect(714, ly - 10, 14, 14);
+          ctx.fillStyle = '#1E293B';
+          ctx.font = '12px sans-serif';
+          ctx.fillText(item.label, 738, ly + 2);
+        });
+
+        // North Arrow & Scale Bar
+        ctx.fillStyle = '#0F172A';
+        ctx.font = 'bold 16px sans-serif';
+        ctx.fillText('N', 862, 74);
+        ctx.beginPath();
+        ctx.moveTo(868, 82); ctx.lineTo(858, 112); ctx.lineTo(868, 105); ctx.lineTo(878, 112);
+        ctx.closePath(); ctx.fill();
+
+        ctx.fillRect(695, 455, 180, 7);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(740, 456, 45, 5);
+        ctx.fillRect(830, 456, 44, 5);
+        ctx.fillStyle = '#0F172A';
+        ctx.font = '11px sans-serif';
+        ctx.fillText('0     15     30           60 km', 695, 480);
+
+      } else {
+        // 3. Zanzibar Aerial Drone & LULC Classification Map
+        const oceanGrad = ctx.createLinearGradient(0, 0, 960, 600);
+        oceanGrad.addColorStop(0, '#0369A1');
+        oceanGrad.addColorStop(0.42, '#06B6D4');
+        oceanGrad.addColorStop(0.55, '#67E8F9');
+        oceanGrad.addColorStop(0.60, '#FDE68A');
+        oceanGrad.addColorStop(0.66, '#16A34A');
+        oceanGrad.addColorStop(1, '#14532D');
+        ctx.fillStyle = oceanGrad;
+        ctx.fillRect(0, 0, 960, 600);
+
+        // Coastal LULC Classified Polygons (Vegetation & Built-up Blocks)
+        for (let x = 560; x < 940; x += 38) {
+          for (let y = 30; y < 560; y += 34) {
+            const isUrban = ((x + y) % 5 === 0);
+            ctx.fillStyle = isUrban ? 'rgba(239, 68, 68, 0.78)' : 'rgba(21, 128, 61, 0.65)';
+            ctx.fillRect(x, y, 32, 28);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(x, y, 32, 28);
+          }
+        }
+
+        // LULC Classification Legend Card
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+        ctx.beginPath(); ctx.roundRect(42, 48, 235, 175, 16); ctx.fill();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 14px sans-serif';
+        ctx.fillText('ZANZIBAR LULC CLASSES', 60, 78);
+
+        const classes = [
+          { name: 'Deep Ocean Water', col: '#0284C7' },
+          { name: 'Coral Lagoon / Sand', col: '#22D3EE' },
+          { name: 'Coastal Vegetation', col: '#16A34A' },
+          { name: 'Urban Settlements', col: '#EF4444' }
+        ];
+        classes.forEach((cl, i) => {
+          const cy = 106 + i * 27;
+          ctx.fillStyle = cl.col;
+          ctx.fillRect(60, cy - 10, 14, 14);
+          ctx.fillStyle = '#E2E8F0';
+          ctx.font = '12px sans-serif';
+          ctx.fillText(cl.name, 84, cy + 2);
+        });
+      }
+
+      return c.toDataURL('image/png');
+    }
+
+    function handleProjectImgError(imgEl) {
+      const step = imgEl.dataset.step || '0';
+      const baseName = imgEl.src.split('/').pop().replace(/\.(png|jpg|jpeg)$/i, '');
+      if (step === '0') {
+        imgEl.dataset.step = '1';
+        imgEl.src = baseName + '.jpg';
+      } else if (step === '1') {
+        imgEl.dataset.step = '2';
+        imgEl.src = baseName + '.jpeg';
+      } else {
+        imgEl.onerror = null;
+        imgEl.src = generateProjectPreviewDataUrl(imgEl.dataset.fallbackType);
+      }
+    }
+  </script>
+
+  <!-- Three.js Photorealistic 3D Earth + Soft Orbit Trails + 3D Light Profile Satellite -->
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-    // Close mobile menu when a nav link is clicked
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    // Smooth Scroll Reveal Observer
     const revealEls = document.querySelectorAll('.reveal-up');
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver((entries) => {
@@ -542,138 +878,24 @@
     }
 
     /* ============================================================
-       AUTO EDGE-FLOOD BACKGROUND REMOVAL + 3D STUDIO CUTOUT EFFECT
+       INTERACTIVE 3D TILT PARALLAX ON PORTRAIT FRAME
        ============================================================ */
-    (function setup3DCutoutPortrait() {
-      const srcImg = document.getElementById('profileSourceImg');
-      const outCanvas = document.getElementById('profileCutoutCanvas');
+    (function setup3DPortraitTilt() {
       const stage = document.getElementById('portrait3dStage');
-      if (!srcImg || !outCanvas) return;
+      if (!stage) return;
+      const wrapper = stage.querySelector('.portrait-cutout-wrapper');
+      if (!wrapper) return;
 
-      function processCutout() {
-        if (!srcImg.naturalWidth || !srcImg.naturalHeight) return;
-        try {
-          const w = 420;
-          const h = Math.round((srcImg.naturalHeight / srcImg.naturalWidth) * w);
-          outCanvas.width = w;
-          outCanvas.height = h;
-          const ctx = outCanvas.getContext('2d', { willReadFrequently: true });
-          ctx.drawImage(srcImg, 0, 0, w, h);
+      stage.addEventListener('mousemove', (e) => {
+        const rect = stage.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        wrapper.style.transform = `perspective(900px) rotateY(${x * 14}deg) rotateX(${-y * 12}deg) translateZ(16px)`;
+      });
 
-          const imgData = ctx.getImageData(0, 0, w, h);
-          const d = imgData.data;
-
-          // Sample outer wall/background pixels from top corners & top edge
-          const samplePts = [
-            [4, 4], [w - 5, 4], [Math.floor(w * 0.2), 4], [Math.floor(w * 0.8), 4],
-            [4, Math.floor(h * 0.25)], [w - 5, Math.floor(h * 0.25)]
-          ];
-          let bgR = 0, bgG = 0, bgB = 0;
-          samplePts.forEach(([sx, sy]) => {
-            const idx = (sy * w + sx) * 4;
-            bgR += d[idx]; bgG += d[idx + 1]; bgB += d[idx + 2];
-          });
-          bgR /= samplePts.length;
-          bgG /= samplePts.length;
-          bgB /= samplePts.length;
-
-          // Edge flood-fill to remove only connected outer background (protects face/shirt)
-          const visited = new Uint8Array(w * h);
-          const queue = new Int32Array(w * h);
-          let head = 0, tail = 0;
-
-          function colorDist(idx) {
-            const dr = d[idx] - bgR;
-            const dg = d[idx + 1] - bgG;
-            const db = d[idx + 2] - bgB;
-            return Math.sqrt(dr * dr + dg * dg + db * db);
-          }
-
-          for (let x = 0; x < w; x++) {
-            queue[tail++] = x;
-            visited[x] = 1;
-          }
-          for (let y = 0; y < Math.floor(h * 0.72); y++) {
-            const leftIdx = y * w;
-            const rightIdx = y * w + (w - 1);
-            if (!visited[leftIdx]) { queue[tail++] = leftIdx; visited[leftIdx] = 1; }
-            if (!visited[rightIdx]) { queue[tail++] = rightIdx; visited[rightIdx] = 1; }
-          }
-
-          const hardThresh = 46;
-          const softThresh = 68;
-
-          while (head < tail) {
-            const p = queue[head++];
-            const px = p % w;
-            const py = (p - px) / w;
-            const cIdx = p * 4;
-            const dist = colorDist(cIdx);
-
-            // Protect central subject torso/face zone
-            const normX = Math.abs(px - w * 0.52) / (w * 0.5);
-            const normY = (py - h * 0.48) / (h * 0.5);
-            const inCoreSubject = (normX < 0.34 && normY > -0.35 && normY < 0.85);
-
-            if (!inCoreSubject && dist < softThresh) {
-              if (dist <= hardThresh) {
-                d[cIdx + 3] = 0;
-              } else {
-                const alphaRatio = (dist - hardThresh) / (softThresh - hardThresh);
-                d[cIdx + 3] = Math.round(255 * alphaRatio);
-              }
-
-              const neighbors = [
-                py > 0 ? p - w : -1,
-                py < h - 1 ? p + w : -1,
-                px > 0 ? p - 1 : -1,
-                px < w - 1 ? p + 1 : -1
-              ];
-              for (let i = 0; i < 4; i++) {
-                const n = neighbors[i];
-                if (n >= 0 && !visited[n]) {
-                  visited[n] = 1;
-                  queue[tail++] = n;
-                }
-              }
-            }
-          }
-
-          ctx.putImageData(imgData, 0, 0);
-          outCanvas.style.display = 'block';
-          srcImg.style.opacity = '0';
-        } catch (err) {
-          // Safe fallback if opened directly via file:// without local server
-          outCanvas.style.display = 'none';
-          srcImg.style.opacity = '1';
-          srcImg.classList.add('fallback-3d-mask');
-        }
-      }
-
-      if (srcImg.complete) {
-        processCutout();
-      } else {
-        srcImg.addEventListener('load', processCutout);
-      }
-
-      // Interactive 3D Tilt Parallax on Portrait Stage
-      if (stage) {
-        stage.addEventListener('mousemove', (e) => {
-          const rect = stage.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top) / rect.height - 0.5;
-          const wrapper = stage.querySelector('.portrait-cutout-wrapper');
-          if (wrapper) {
-            wrapper.style.transform = `perspective(900px) rotateY(${x * 14}deg) rotateX(${-y * 12}deg) translateZ(18px)`;
-          }
-        });
-        stage.addEventListener('mouseleave', () => {
-          const wrapper = stage.querySelector('.portrait-cutout-wrapper');
-          if (wrapper) {
-            wrapper.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) translateZ(14px)';
-          }
-        });
-      }
+      stage.addEventListener('mouseleave', () => {
+        wrapper.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) translateZ(12px)';
+      });
     })();
 
     if (typeof THREE !== 'undefined') {

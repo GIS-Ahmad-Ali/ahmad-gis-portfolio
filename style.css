@@ -181,7 +181,7 @@ a {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: 68% 15%;
   background: #ffffff;
 }
 
@@ -472,7 +472,7 @@ a {
 }
 
 /* ============================================================
-   7. HERO RIGHT: 3D BACKGROUND-REMOVED CUTOUT PORTRAIT + 3D SATELLITE
+   7. HERO RIGHT: CLEAN CIRCULAR 3D STUDIO FRAME + 3D SATELLITE
    ============================================================ */
 .hero-visual-cluster {
   position: relative;
@@ -485,7 +485,7 @@ a {
 .orbital-ring-frame {
   position: relative;
   width: 420px;
-  height: 430px;
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -495,7 +495,7 @@ a {
 .orbital-ring-frame::before {
   content: "";
   position: absolute;
-  inset: -8px;
+  inset: -6px;
   border-radius: 50%;
   border: 1.5px dashed rgba(22, 43, 77, 0.26);
   animation: slowSpin 28s linear infinite;
@@ -520,65 +520,52 @@ a {
   height: 100% !important;
 }
 
-/* 3D Open-Air Pedestal & Floating Cutout Portrait */
 .portrait-3d-pedestal {
   position: relative;
   z-index: 3;
-  width: 355px;
-  height: 390px;
+  width: 350px;
+  height: 350px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   animation: floatGentle 6s ease-in-out infinite;
 }
 
 .portrait-3d-halo {
   position: absolute;
-  bottom: 14px;
-  width: 315px;
-  height: 315px;
+  inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.92) 0%, rgba(22, 43, 77, 0.14) 58%, rgba(200, 90, 50, 0.16) 76%, transparent 100%);
-  border: 2px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 24px 50px rgba(22, 43, 77, 0.16), inset 0 0 32px rgba(200, 90, 50, 0.14);
+  background: linear-gradient(135deg, rgba(22, 43, 77, 0.25), rgba(200, 90, 50, 0.30));
+  filter: blur(18px);
   z-index: 1;
 }
 
 .portrait-cutout-wrapper {
   position: relative;
   z-index: 3;
-  width: 325px;
-  height: 375px;
-  border-radius: 28px 28px 165px 165px;
+  width: 336px;
+  height: 336px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, var(--indigo-deep), var(--copper));
+  box-shadow: 0 24px 48px rgba(22, 43, 77, 0.26), 0 8px 20px rgba(200, 90, 50, 0.18);
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  transform: perspective(900px) translateZ(14px);
+  transform: perspective(900px) translateZ(12px);
   transition: transform 0.22s ease-out;
-  filter: drop-shadow(0 20px 26px rgba(22, 43, 77, 0.28));
 }
 
 .portrait-cutout-wrapper img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  background: #F4F2EC;
   object-fit: cover;
-  object-position: center 10%;
-  transition: opacity 0.3s ease;
-}
-
-/* Soft radial vignette fallback if browser blocks pixel-level canvas reading on file:// */
-.portrait-cutout-wrapper img.fallback-3d-mask {
-  -webkit-mask-image: radial-gradient(ellipse 68% 76% at 50% 48%, #000000 62%, rgba(0, 0, 0, 0.45) 84%, transparent 100%);
-  mask-image: radial-gradient(ellipse 68% 76% at 50% 48%, #000000 62%, rgba(0, 0, 0, 0.45) 84%, transparent 100%);
-}
-
-#profileCutoutCanvas {
-  display: none;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 10%;
+  object-position: 68% 14%;
+  transform: scale(1.16);
+  display: block;
 }
 
 .profile-slot-placeholder {
@@ -587,8 +574,11 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffffff;
   padding: 1.5rem;
-  margin-bottom: 3.5rem;
   z-index: 2;
   text-align: center;
 }
@@ -1216,7 +1206,7 @@ footer a {
 
   .orbital-ring-frame {
     width: 310px;
-    height: 330px;
+    height: 310px;
   }
 
   .profile-3d-sat-layer {
@@ -1225,18 +1215,13 @@ footer a {
   }
 
   .portrait-3d-pedestal {
-    width: 270px;
-    height: 300px;
-  }
-
-  .portrait-3d-halo {
-    width: 240px;
-    height: 240px;
+    width: 265px;
+    height: 265px;
   }
 
   .portrait-cutout-wrapper {
-    width: 250px;
-    height: 285px;
+    width: 252px;
+    height: 252px;
   }
 
   .skills-grid,
