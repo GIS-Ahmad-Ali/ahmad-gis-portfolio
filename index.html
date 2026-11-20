@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Ali | GIS &amp; Remote Sensing Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- External CSS File -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= SUBTLE WORLD CARTOGRAPHIC BACKDROP ================= -->
+  <div class="world-atlas-backdrop" aria-hidden="true"></div>
+  <div class="atlas-glass-tint" aria-hidden="true"></div>
+
+  <!-- ================= REALISTIC 3D EARTH + SOFT-BLURRED ORBITS ================= -->
+  <div class="orbital-3d-backdrop" aria-hidden="true">
+    <div id="unified-earth-orbit-canvas"></div>
+  </div>
+
+  <!-- ================= ALWAYS-FLOATING GLASS NAVBAR ================= -->
+  <div class="navbar-wrap">
+    <nav class="navbar">
+      <a href="#home" class="brand">
+        <span class="brand-avatar">
+          <img
+            src="profile.jpg"
+            alt="Ahmad Ali"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <span class="brand-avatar-fallback" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3.6 9h16.8M3.6 15h16.8"></path>
+              <path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+            </svg>
+          </span>
+        </span>
+        <span class="brand-text">Ahmad <span>Ali</span></span>
+      </a>
+
+      <button class="hamburger" id="menuBtn" aria-label="Toggle Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta">Get In Touch</a>
+    </nav>
+  </div>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Left Side: Bio & Highlights -->
+        <div class="hero-left reveal-up">
+          <div class="greeting-pill">👋 Hello, It's Me</div>
+          <h1>Ahmad Ali</h1>
+          <div class="hero-subtitle">And I'm a <span>GIS &amp; Remote Sensing Analyst</span></div>
+          <div class="accent-bar"></div>
+
+          <p class="hero-bio">
+            I am a passionate <strong>BS GIS undergraduate</strong> at the <strong>University of the Punjab, Lahore</strong>, specializing in cadastral mapping, satellite remote sensing, and Geospatial AI. I transform satellite imagery, aerial drone data, and spatial datasets into high-precision cartographic solutions.
+          </p>
+
+          <div class="inline-pillars">
+            <div class="pillar-item">
+              <span class="pillar-icon">🗺️</span>
+              <span>GIS &amp; Cadastral QC</span>
+            </div>
+            <span class="pillar-sep"></span>
+            <div class="pillar-item">
+              <span class="pillar-icon">🛰️</span>
+              <span>Remote Sensing &amp; GEE</span>
+            </div>
+            <span class="pillar-sep"></span>
+            <div class="pillar-item">
+              <span class="pillar-icon">📊</span>
+              <span>Spatial Analytics</span>
+            </div>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-solid">Explore My Projects &rarr;</a>
+            <a href="#contact" class="btn btn-outline">Contact Me &#9993;</a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/ahmad-ali-7b34632b2" target="_blank" rel="noopener" class="circle-social" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/GIS-Ahmad-Ali" target="_blank" rel="noopener" class="circle-social" aria-label="GitHub (GIS-Ahmad-Ali)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <a href="mailto:gorcha1214@gmail.com" class="circle-social" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: 3D Cutout Studio Portrait + Orbiting 3D Light Satellite -->
+        <div class="hero-visual-cluster reveal-up">
+          <div class="orbital-ring-frame" id="portrait3dStage">
+            <!-- Dedicated Real Three.js 3D Light Mini-Satellite Orbiting Profile -->
+            <div id="profile-3d-sat-canvas" class="profile-3d-sat-layer" aria-hidden="true"></div>
+
+            <!-- 3D Pedestal Ring + Auto-Cutout Portrait -->
+            <div class="portrait-3d-pedestal">
+              <div class="portrait-3d-halo" aria-hidden="true"></div>
+              <div class="portrait-cutout-wrapper">
+                <img
+                  id="profileSourceImg"
+                  src="profile.jpg"
+                  alt="Ahmad Ali 3D Portrait"
+                  onerror="if(!this.dataset.step){this.dataset.step='1';this.src='profile.jpeg';}else if(this.dataset.step==='1'){this.dataset.step='2';this.src='profile.png';}else{this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';}"
+                />
+                <canvas id="profileCutoutCanvas" aria-label="Ahmad Ali 3D Cutout Portrait"></canvas>
+
+                <div class="profile-slot-placeholder" id="profilePlaceholder">
+                  <div class="slot-avatar-badge">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <strong>Ahmad Ali</strong>
+                  <span>Save photo as profile.jpg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT SECTION (EDUCATION & SEPARATE INTERNSHIPS) ================= -->
+  <section id="about" class="section-block">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">About Me</span>
+        <h2>Education &amp; Experience</h2>
+        <p>Combining BS GIS coursework at the University of the Punjab with cadastral mapping and Geospatial AI internships.</p>
+      </div>
+
+      <div class="about-cards-grid">
+        <div class="about-feature-card reveal-up">
+          <div class="about-card-icon">🎓</div>
+          <h3>BS Geographical Information System</h3>
+          <p>
+            Undergraduate student at the <strong>University of the Punjab, Lahore</strong> (2024–Present), specializing in spatial analysis, remote sensing, cartographic design, and geospatial databases.
+          </p>
+        </div>
+
+        <div class="about-feature-card reveal-up">
+          <div class="about-card-icon">📐</div>
+          <h3>CMSS — PULSE Project Internship</h3>
+          <p>
+            Worked as a <strong>GIS Analyst &amp; Cadastral Mapping Intern</strong> at <strong>CMSS (PULSE Project)</strong>, performing cadastral parcel cutting, land-record digitization, topology checks, and spatial QA/QC.
+          </p>
+        </div>
+
+        <div class="about-feature-card reveal-up">
+          <div class="about-card-icon">🛰️</div>
+          <h3>AI Geo Navigators Internship</h3>
+          <p>
+            Serving as a <strong>Geospatial AI &amp; Climate Intelligence Trainee</strong> at <strong>AI Geo Navigators</strong>, developing satellite remote sensing workflows, Google Earth Engine scripts, and climate analytics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS SECTION (SOFTWARE LOGOS & CAPABILITY CARDS — NO LINE BARS) ================= -->
+  <section id="skills" class="section-block">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag warm">Technical Stack</span>
+        <h2>GIS, Remote Sensing &amp; Web Skills</h2>
+        <p>Geospatial software, earth-observation platforms, and frontend development tools from academic and internship work.</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Skill 1: ArcGIS Pro & ArcMap -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo arcgis-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"></circle>
+              <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>ArcGIS Pro &amp; ArcMap</h3>
+              <span class="skill-badge">Esri GIS</span>
+            </div>
+            <p>Georeferencing, spatial analysis, topology, geodatabases &amp; print layouts.</p>
+          </div>
+        </div>
+
+        <!-- Skill 2: QGIS -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo qgis-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="M16 16l5 5"></path>
+              <path d="M13 13l4 4"></path>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>QGIS &amp; Cartographic Design</h3>
+              <span class="skill-badge warm">Open GIS</span>
+            </div>
+            <p>Multi-layer vector digitization, thematic symbology &amp; qgis2web interactive maps.</p>
+          </div>
+        </div>
+
+        <!-- Skill 3: Google Earth Engine -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo gee-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>Google Earth Engine (GEE)</h3>
+              <span class="skill-badge">Remote Sensing</span>
+            </div>
+            <p>Landsat 9, Sentinel-2, MODIS LST, SMAP &amp; multi-year NDVI time-series analysis.</p>
+          </div>
+        </div>
+
+        <!-- Skill 4: Cadastral Mapping -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo cad-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+              <line x1="9" y1="3" x2="9" y2="18"></line>
+              <line x1="15" y1="6" x2="15" y2="21"></line>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>Cadastral Mapping &amp; QC</h3>
+              <span class="skill-badge warm">Parcel Cutting</span>
+            </div>
+            <p>Mussavi digitization, parcel subdivision, attribute verification &amp; QA/QC.</p>
+          </div>
+        </div>
+
+        <!-- Skill 5: Python & Geospatial AI -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo python-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>Python &amp; Geospatial AI / ML</h3>
+              <span class="skill-badge">Spatial AI</span>
+            </div>
+            <p>GeoPandas, Rasterio, automated geoprocessing &amp; LULC classification models.</p>
+          </div>
+        </div>
+
+        <!-- Skill 6: HTML5 & CSS3 -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo web-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <circle cx="7" cy="6.5" r="0.8" fill="currentColor"></circle>
+              <circle cx="10" cy="6.5" r="0.8" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>HTML5, CSS3 &amp; Web GIS UI</h3>
+              <span class="skill-badge warm">Frontend Web</span>
+            </div>
+            <p>Responsive web portfolios, Leaflet dashboards &amp; interactive spatial interfaces.</p>
+          </div>
+        </div>
+
+        <!-- Skill 7: Spatial Analytics -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo bi-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>Power BI, R &amp; Spatial Stats</h3>
+              <span class="skill-badge">Analytics</span>
+            </div>
+            <p>Zonal statistics, climate trend correlation charts &amp; geospatial KPI dashboards.</p>
+          </div>
+        </div>
+
+        <!-- Skill 8: Google Earth Pro & AutoCAD -->
+        <div class="skill-card reveal-up">
+          <div class="skill-logo autocad-logo" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div class="skill-details">
+            <div class="skill-header-row">
+              <h3>Google Earth Pro &amp; AutoCAD</h3>
+              <span class="skill-badge warm">CAD &amp; 3D</span>
+            </div>
+            <p>2D/3D CAD drafting, KML/KMZ terrain profiling &amp; high-res satellite visual checks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS SECTION (3 FEATURED GIS & NASA PROJECTS) ================= -->
+  <section id="projects" class="section-block">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Spatial Showcase</span>
+        <h2>Featured GIS &amp; NASA Space Apps Projects</h2>
+        <p>Multi-sensor NASA Earth observation dashboards, aerial land-cover mapping, and geological digitization.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: FieldShift — NASA Space Apps Challenge 2026 -->
+        <article class="project-card reveal-up">
+          <div class="project-photo-frame">
+            <span class="project-badge">NASA Space Apps 2026</span>
+            <img
+              src="nasa-fieldshift.png"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=85';"
+              alt="FieldShift NASA Earth Observation Agricultural Dashboard"
+            />
+            <span class="project-sensor-tag">NASA EARTHDATA &bull; D.G. KHAN</span>
+          </div>
+          <div class="project-body">
+            <h3>FieldShift: Adapting with NASA Data</h3>
+            <p>
+              Built an interactive geospatial dashboard for Dera Ghazi Khan District integrating Landsat 9 NDVI, MODIS LST, SMAP soil moisture, and GPM rainfall (2010–2025) with bilingual English/Urdu farmer advisories.
+            </p>
+            <div class="tag-list">
+              <span>Google Earth Engine</span>
+              <span>Landsat 9 &amp; MODIS</span>
+              <span>SMAP &amp; GPM</span>
+              <span>Web GIS Dashboard</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Digitization of Mineral Map of AJK (Final_one.pdf) -->
+        <article class="project-card reveal-up">
+          <div class="project-photo-frame">
+            <span class="project-badge">Cartographic Digitization</span>
+            <img
+              src="ajk-mineral-map.png"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=85';"
+              alt="Digitized Mineral Map of Azad Jammu and Kashmir"
+            />
+            <span class="project-sensor-tag">WGS 1984 &bull; AZAD JAMMU &amp; KASHMIR</span>
+          </div>
+          <div class="project-body">
+            <h3>Digitized Mineral Map of Azad Jammu &amp; Kashmir</h3>
+            <p>
+              Digitized multi-layer geological and hydrological datasets across Muzaffarabad, Bagh, Rawalakot, Kotli, and Mirpur in WGS 1984, classifying Metallic, Industrial, Fuel &amp; Energy, and Precious mineral deposits.
+            </p>
+            <div class="tag-list">
+              <span>ArcMap / QGIS</span>
+              <span>Vector Digitization</span>
+              <span>Minerals &amp; Hydrology</span>
+              <span>WGS 1984 Layout</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Zanzibar LULC -->
+        <article class="project-card reveal-up">
+          <div class="project-photo-frame">
+            <span class="project-badge">Drone Imagery &amp; LULC</span>
+            <img
+              src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1000&q=85"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=1000&q=85';"
+              alt="Aerial Coastline and Land Cover of Zanzibar, Tanzania"
+            />
+            <span class="project-sensor-tag">AERIAL LULC &bull; ZANZIBAR, TANZANIA</span>
+          </div>
+          <div class="project-body">
+            <h3>Georeferencing &amp; LULC of Zanzibar (Tanzania)</h3>
+            <p>
+              Georeferenced high-resolution aerial drone imagery of Zanzibar and performed Land Use / Land Cover (LULC) classification to map coastal settlements, vegetation zones, and land-cover patterns.
+            </p>
+            <div class="tag-list">
+              <span>Drone Imagery</span>
+              <span>Georeferencing</span>
+              <span>LULC Classification</span>
+              <span>Remote Sensing</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT SECTION ================= -->
+  <section id="contact" class="section-block">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag warm">Connect</span>
+        <h2>Get In Touch</h2>
+        <p>Available for GIS analysis, remote sensing workflows, cadastral mapping, and frontend web projects.</p>
+      </div>
+
+      <div class="contact-box reveal-up">
+        <div class="contact-info">
+          <h3>Let's Collaborate on Spatial Solutions</h3>
+          <p>
+            Reach out for satellite remote sensing analysis, cadastral mapping QA/QC, cartographic digitization, or interactive geospatial web interfaces.
+          </p>
+
+          <ul class="info-rows">
+            <li>
+              <span class="c-icon">📍</span>
+              <span>Lahore, Punjab, Pakistan</span>
+            </li>
+            <li>
+              <span class="c-icon">✉️</span>
+              <span>gorcha1214@gmail.com</span>
+            </li>
+            <li>
+              <span class="c-icon">📞</span>
+              <span>0312-7461614 / 0331-7131562</span>
+            </li>
+          </ul>
+
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/ahmad-ali-7b34632b2" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/GIS-Ahmad-Ali" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub (GIS-Ahmad-Ali)">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <a href="mailto:gorcha1214@gmail.com" class="social-btn" aria-label="Email">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.'); this.reset();">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" class="input-box" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="input-box" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="input-box" placeholder="Write your message or GIS project inquiry..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-solid">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>&copy; 2026 Ahmad Ali &bull; GIS &amp; Remote Sensing Portfolio | <a href="https://github.com/GIS-Ahmad-Ali" target="_blank" rel="noopener">github.com/GIS-Ahmad-Ali</a></p>
+  </footer>
+
+  <!-- Three.js Photorealistic 3D Earth + Soft Orbit Trails + 3D Light Profile Satellite + Auto Cutout -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Close mobile menu when a nav link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Smooth Scroll Reveal Observer
+    const revealEls = document.querySelectorAll('.reveal-up');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach((el) => revealObserver.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add('is-visible'));
+    }
+
+    /* ============================================================
+       AUTO EDGE-FLOOD BACKGROUND REMOVAL + 3D STUDIO CUTOUT EFFECT
+       ============================================================ */
+    (function setup3DCutoutPortrait() {
+      const srcImg = document.getElementById('profileSourceImg');
+      const outCanvas = document.getElementById('profileCutoutCanvas');
+      const stage = document.getElementById('portrait3dStage');
+      if (!srcImg || !outCanvas) return;
+
+      function processCutout() {
+        if (!srcImg.naturalWidth || !srcImg.naturalHeight) return;
+        try {
+          const w = 420;
+          const h = Math.round((srcImg.naturalHeight / srcImg.naturalWidth) * w);
+          outCanvas.width = w;
+          outCanvas.height = h;
+          const ctx = outCanvas.getContext('2d', { willReadFrequently: true });
+          ctx.drawImage(srcImg, 0, 0, w, h);
+
+          const imgData = ctx.getImageData(0, 0, w, h);
+          const d = imgData.data;
+
+          // Sample outer wall/background pixels from top corners & top edge
+          const samplePts = [
+            [4, 4], [w - 5, 4], [Math.floor(w * 0.2), 4], [Math.floor(w * 0.8), 4],
+            [4, Math.floor(h * 0.25)], [w - 5, Math.floor(h * 0.25)]
+          ];
+          let bgR = 0, bgG = 0, bgB = 0;
+          samplePts.forEach(([sx, sy]) => {
+            const idx = (sy * w + sx) * 4;
+            bgR += d[idx]; bgG += d[idx + 1]; bgB += d[idx + 2];
+          });
+          bgR /= samplePts.length;
+          bgG /= samplePts.length;
+          bgB /= samplePts.length;
+
+          // Edge flood-fill to remove only connected outer background (protects face/shirt)
+          const visited = new Uint8Array(w * h);
+          const queue = new Int32Array(w * h);
+          let head = 0, tail = 0;
+
+          function colorDist(idx) {
+            const dr = d[idx] - bgR;
+            const dg = d[idx + 1] - bgG;
+            const db = d[idx + 2] - bgB;
+            return Math.sqrt(dr * dr + dg * dg + db * db);
+          }
+
+          for (let x = 0; x < w; x++) {
+            queue[tail++] = x;
+            visited[x] = 1;
+          }
+          for (let y = 0; y < Math.floor(h * 0.72); y++) {
+            const leftIdx = y * w;
+            const rightIdx = y * w + (w - 1);
+            if (!visited[leftIdx]) { queue[tail++] = leftIdx; visited[leftIdx] = 1; }
+            if (!visited[rightIdx]) { queue[tail++] = rightIdx; visited[rightIdx] = 1; }
+          }
+
+          const hardThresh = 46;
+          const softThresh = 68;
+
+          while (head < tail) {
+            const p = queue[head++];
+            const px = p % w;
+            const py = (p - px) / w;
+            const cIdx = p * 4;
+            const dist = colorDist(cIdx);
+
+            // Protect central subject torso/face zone
+            const normX = Math.abs(px - w * 0.52) / (w * 0.5);
+            const normY = (py - h * 0.48) / (h * 0.5);
+            const inCoreSubject = (normX < 0.34 && normY > -0.35 && normY < 0.85);
+
+            if (!inCoreSubject && dist < softThresh) {
+              if (dist <= hardThresh) {
+                d[cIdx + 3] = 0;
+              } else {
+                const alphaRatio = (dist - hardThresh) / (softThresh - hardThresh);
+                d[cIdx + 3] = Math.round(255 * alphaRatio);
+              }
+
+              const neighbors = [
+                py > 0 ? p - w : -1,
+                py < h - 1 ? p + w : -1,
+                px > 0 ? p - 1 : -1,
+                px < w - 1 ? p + 1 : -1
+              ];
+              for (let i = 0; i < 4; i++) {
+                const n = neighbors[i];
+                if (n >= 0 && !visited[n]) {
+                  visited[n] = 1;
+                  queue[tail++] = n;
+                }
+              }
+            }
+          }
+
+          ctx.putImageData(imgData, 0, 0);
+          outCanvas.style.display = 'block';
+          srcImg.style.opacity = '0';
+        } catch (err) {
+          // Safe fallback if opened directly via file:// without local server
+          outCanvas.style.display = 'none';
+          srcImg.style.opacity = '1';
+          srcImg.classList.add('fallback-3d-mask');
+        }
+      }
+
+      if (srcImg.complete) {
+        processCutout();
+      } else {
+        srcImg.addEventListener('load', processCutout);
+      }
+
+      // Interactive 3D Tilt Parallax on Portrait Stage
+      if (stage) {
+        stage.addEventListener('mousemove', (e) => {
+          const rect = stage.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          const wrapper = stage.querySelector('.portrait-cutout-wrapper');
+          if (wrapper) {
+            wrapper.style.transform = `perspective(900px) rotateY(${x * 14}deg) rotateX(${-y * 12}deg) translateZ(18px)`;
+          }
+        });
+        stage.addEventListener('mouseleave', () => {
+          const wrapper = stage.querySelector('.portrait-cutout-wrapper');
+          if (wrapper) {
+            wrapper.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) translateZ(14px)';
+          }
+        });
+      }
+    })();
+
+    if (typeof THREE !== 'undefined') {
+      const textureLoader = new THREE.TextureLoader();
+      textureLoader.setCrossOrigin('anonymous');
+
+      function createFallbackEarthTexture() {
+        const c = document.createElement('canvas');
+        c.width = 1024; c.height = 512;
+        const ctx = c.getContext('2d');
+        const grad = ctx.createLinearGradient(0, 0, 0, 512);
+        grad.addColorStop(0, '#162B4D');
+        grad.addColorStop(0.5, '#2563EB');
+        grad.addColorStop(1, '#162B4D');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 1024, 512);
+        return new THREE.CanvasTexture(c);
+      }
+
+      function createSoftBlurredOrbitTexture(r, g, b) {
+        const c = document.createElement('canvas');
+        c.width = 512; c.height = 512;
+        const ctx = c.getContext('2d');
+        const cx = 256, cy = 256;
+
+        const rad = ctx.createRadialGradient(cx, cy, 185, cx, cy, 246);
+        rad.addColorStop(0.0, `rgba(${r}, ${g}, ${b}, 0)`);
+        rad.addColorStop(0.38, `rgba(${r}, ${g}, ${b}, 0.14)`);
+        rad.addColorStop(0.50, `rgba(${r}, ${g}, ${b}, 0.34)`);
+        rad.addColorStop(0.62, `rgba(${r}, ${g}, ${b}, 0.14)`);
+        rad.addColorStop(1.0, `rgba(${r}, ${g}, ${b}, 0)`);
+
+        ctx.fillStyle = rad;
+        ctx.fillRect(0, 0, 512, 512);
+        return new THREE.CanvasTexture(c);
+      }
+
+      function createLightSolarTexture(isProfileMini) {
+        const c = document.createElement('canvas');
+        c.width = 512; c.height = 256;
+        const ctx = c.getContext('2d');
+
+        const grad = ctx.createLinearGradient(0, 0, 512, 256);
+        if (isProfileMini) {
+          grad.addColorStop(0, '#CBD5E1');
+          grad.addColorStop(0.5, '#93C5FD');
+          grad.addColorStop(1, '#E2E8F0');
+        } else {
+          grad.addColorStop(0, '#162B4D');
+          grad.addColorStop(0.5, '#2B4C7E');
+          grad.addColorStop(1, '#1E3A5F');
+        }
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 512, 256);
+
+        ctx.strokeStyle = isProfileMini ? 'rgba(255, 255, 255, 0.85)' : 'rgba(226, 232, 240, 0.55)';
+        ctx.lineWidth = 2;
+        for (let x = 0; x <= 512; x += 32) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 256); ctx.stroke();
+        }
+        for (let y = 0; y <= 256; y += 32) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y); ctx.stroke();
+        }
+        return new THREE.CanvasTexture(c);
+      }
+
+      function createCrinkledFoilBump() {
+        const c = document.createElement('canvas');
+        c.width = 256; c.height = 256;
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#808080';
+        ctx.fillRect(0, 0, 256, 256);
+
+        for (let i = 0; i < 900; i++) {
+          const x = Math.random() * 256;
+          const y = Math.random() * 256;
+          const len = 6 + Math.random() * 14;
+          const ang = Math.random() * Math.PI * 2;
+          ctx.strokeStyle = i % 2 === 0 ? 'rgba(235,235,235,0.45)' : 'rgba(50,50,50,0.45)';
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.lineTo(x + Math.cos(ang) * len, y + Math.sin(ang) * len);
+          ctx.stroke();
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        return tex;
+      }
+
+      function createAerospaceSatellite(foilColorHex, beamColorHex, foilBump, solarTex, isLightMini) {
+        const sat = new THREE.Group();
+
+        const foilMat = new THREE.MeshStandardMaterial({
+          color: foilColorHex,
+          bumpMap: foilBump,
+          bumpScale: isLightMini ? 0.015 : 0.025,
+          metalness: isLightMini ? 0.55 : 0.85,
+          roughness: isLightMini ? 0.32 : 0.25
+        });
+
+        const frameMat = new THREE.MeshStandardMaterial({
+          color: isLightMini ? 0xF8FAFC : 0xE2E8F0,
+          metalness: isLightMini ? 0.45 : 0.88,
+          roughness: isLightMini ? 0.28 : 0.20
+        });
+
+        const sensorBodyMat = new THREE.MeshStandardMaterial({
+          color: isLightMini ? 0x94A3B8 : 0x1E293B,
+          metalness: 0.45,
+          roughness: 0.38
+        });
+
+        const busCore = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.44, 6), foilMat);
+        busCore.rotation.z = Math.PI / 2;
+        sat.add(busCore);
+
+        [-0.21, 0.21].forEach(xPos => {
+          const ring = new THREE.Mesh(new THREE.CylinderGeometry(0.195, 0.195, 0.035, 18), frameMat);
+          ring.rotation.z = Math.PI / 2;
+          ring.position.x = xPos;
+          sat.add(ring);
+        });
+
+        const baffle = new THREE.Mesh(new THREE.CylinderGeometry(0.095, 0.12, 0.20, 24), sensorBodyMat);
+        baffle.position.set(0.06, -0.18, 0);
+        sat.add(baffle);
+
+        const opticalLens = new THREE.Mesh(
+          new THREE.CircleGeometry(0.088, 24),
+          new THREE.MeshPhysicalMaterial({
+            color: isLightMini ? 0xBAE6FD : 0x38BDF8,
+            metalness: 0.6,
+            roughness: 0.1,
+            clearcoat: 1.0
+          })
+        );
+        opticalLens.rotation.x = Math.PI / 2;
+        opticalLens.position.set(0.06, -0.282, 0);
+        sat.add(opticalLens);
+
+        const scanCone = new THREE.Mesh(
+          new THREE.ConeGeometry(0.22, 0.68, 24, 1, true),
+          new THREE.MeshBasicMaterial({
+            color: beamColorHex,
+            transparent: true,
+            opacity: isLightMini ? 0.11 : 0.13,
+            side: THREE.DoubleSide,
+            depthWrite: false
+          })
+        );
+        scanCone.position.set(0.06, -0.62, 0);
+        sat.add(scanCone);
+
+        const dishReflector = new THREE.Mesh(
+          new THREE.SphereGeometry(0.14, 24, 16, 0, Math.PI * 2, 0, Math.PI * 0.45),
+          frameMat
+        );
+        dishReflector.position.set(-0.12, 0.20, 0);
+        dishReflector.rotation.x = Math.PI;
+        sat.add(dishReflector);
+
+        const solarWingMat = new THREE.MeshPhysicalMaterial({
+          map: solarTex,
+          metalness: isLightMini ? 0.35 : 0.60,
+          roughness: isLightMini ? 0.28 : 0.22,
+          clearcoat: 0.75
+        });
+
+        function buildWing(sideSign) {
+          const wingGroup = new THREE.Group();
+          const strut = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.011, 0.26, 10), frameMat);
+          strut.rotation.x = Math.PI / 2;
+          strut.position.z = sideSign * 0.28;
+          wingGroup.add(strut);
+
+          [0.56, 0.94].forEach((zOffset) => {
+            const panel = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.010, 0.35), solarWingMat);
+            panel.position.z = sideSign * zOffset;
+            wingGroup.add(panel);
+
+            const frame = new THREE.Mesh(new THREE.BoxGeometry(0.292, 0.007, 0.362), frameMat);
+            frame.position.z = sideSign * zOffset;
+            wingGroup.add(frame);
+          });
+          return wingGroup;
+        }
+
+        const portWing = buildWing(1);
+        const starboardWing = buildWing(-1);
+        sat.add(portWing);
+        sat.add(starboardWing);
+
+        return { sat, portWing, starboardWing };
+      }
+
+      const foilBump = createCrinkledFoilBump();
+
+      /* ============================================================
+         A. BACKGROUND PHOTOREALISTIC 3D EARTH + SOFT BLURRED ORBITS
+         ============================================================ */
+      const orbitContainer = document.getElementById('unified-earth-orbit-canvas');
+      let scrollOrbitOffset = 0;
+
+      if (orbitContainer) {
+        const width = orbitContainer.clientWidth || 1240;
+        const height = orbitContainer.clientHeight || 860;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(33, width / height, 0.1, 100);
+        camera.position.set(0, 1.35, 8.6);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.04;
+        orbitContainer.appendChild(renderer.domElement);
+
+        scene.add(new THREE.AmbientLight(0xF8FAFC, 0.62));
+
+        const sunLight = new THREE.DirectionalLight(0xFFFDF8, 2.35);
+        sunLight.position.set(5.5, 3.8, 6.8);
+        scene.add(sunLight);
+
+        const coolFill = new THREE.DirectionalLight(0xDBEAFE, 0.55);
+        coolFill.position.set(-5.0, -2.5, 4.0);
+        scene.add(coolFill);
+
+        const earthSystem = new THREE.Group();
+        earthSystem.position.set(0.85, 0.08, 0);
+        earthSystem.rotation.z = 0.24;
+
+        const earthMat = new THREE.MeshStandardMaterial({
+          map: createFallbackEarthTexture(),
+          roughness: 0.72,
+          metalness: 0.06,
+          bumpScale: 0.075
+        });
+
+        textureLoader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg', (tex) => {
+          tex.colorSpace = THREE.SRGBColorSpace;
+          earthMat.map = tex;
+          earthMat.needsUpdate = true;
+        });
+
+        textureLoader.load('https://unpkg.com/three-globe/example/img/earth-topology.png', (bump) => {
+          earthMat.bumpMap = bump;
+          earthMat.needsUpdate = true;
+        });
+
+        textureLoader.load('https://unpkg.com/three-globe/example/img/earth-water.png', (rough) => {
+          earthMat.roughnessMap = rough;
+          earthMat.needsUpdate = true;
+        });
+
+        const earthMesh = new THREE.Mesh(new THREE.SphereGeometry(1.92, 80, 80), earthMat);
+        earthSystem.add(earthMesh);
+
+        const cloudMat = new THREE.MeshLambertMaterial({
+          transparent: true,
+          opacity: 0.62,
+          depthWrite: false
+        });
+        textureLoader.load('https://unpkg.com/three-globe/example/img/earth-clouds.png', (cTex) => {
+          cloudMat.map = cTex;
+          cloudMat.needsUpdate = true;
+        });
+        const cloudMesh = new THREE.Mesh(new THREE.SphereGeometry(1.946, 80, 80), cloudMat);
+        earthSystem.add(cloudMesh);
+
+        scene.add(earthSystem);
+
+        const bgSolarTex = createLightSolarTexture(false);
+
+        const orbitPlane1 = new THREE.Group();
+        orbitPlane1.position.set(0.85, 0.08, 0);
+        orbitPlane1.rotation.x = 0.34;
+        orbitPlane1.rotation.z = -0.32;
+        scene.add(orbitPlane1);
+
+        const orbitRadius1 = 2.68;
+        const softRing1 = new THREE.Mesh(
+          new THREE.RingGeometry(orbitRadius1 - 0.16, orbitRadius1 + 0.16, 128),
+          new THREE.MeshBasicMaterial({
+            map: createSoftBlurredOrbitTexture(200, 90, 50),
+            transparent: true,
+            opacity: 0.65,
+            side: THREE.DoubleSide,
+            depthWrite: false
+          })
+        );
+        softRing1.rotation.x = Math.PI / 2;
+        orbitPlane1.add(softRing1);
+
+        const satObj1 = createAerospaceSatellite(0xE2C08D, 0xC85A32, foilBump, bgSolarTex, false);
+        satObj1.sat.scale.set(0.58, 0.58, 0.58);
+        orbitPlane1.add(satObj1.sat);
+
+        const orbitPlane2 = new THREE.Group();
+        orbitPlane2.position.set(0.35, -0.05, 0);
+        orbitPlane2.rotation.x = 0.42;
+        orbitPlane2.rotation.z = 0.46;
+        scene.add(orbitPlane2);
+
+        const orbitRadius2 = 2.95;
+        const softRing2 = new THREE.Mesh(
+          new THREE.RingGeometry(orbitRadius2 - 0.16, orbitRadius2 + 0.16, 128),
+          new THREE.MeshBasicMaterial({
+            map: createSoftBlurredOrbitTexture(22, 43, 77),
+            transparent: true,
+            opacity: 0.60,
+            side: THREE.DoubleSide,
+            depthWrite: false
+          })
+        );
+        softRing2.rotation.x = Math.PI / 2;
+        orbitPlane2.add(softRing2);
+
+        const satObj2 = createAerospaceSatellite(0xCBD5E1, 0x162B4D, foilBump, bgSolarTex, false);
+        satObj2.sat.scale.set(0.54, 0.54, 0.54);
+        orbitPlane2.add(satObj2.sat);
+
+        let baseAngle1 = 0.85;
+        let baseAngle2 = 3.45;
+
+        function animateEarthScene() {
+          requestAnimationFrame(animateEarthScene);
+
+          earthMesh.rotation.y += 0.0020;
+          cloudMesh.rotation.y += 0.0026;
+
+          baseAngle1 += 0.0040;
+          const angle1 = baseAngle1 + scrollOrbitOffset;
+          satObj1.sat.position.x = Math.cos(angle1) * orbitRadius1;
+          satObj1.sat.position.z = Math.sin(angle1) * orbitRadius1;
+          satObj1.sat.rotation.y = -angle1 + Math.PI / 2;
+          const pitch1 = Math.sin(angle1) * 0.24;
+          satObj1.portWing.rotation.x = pitch1;
+          satObj1.starboardWing.rotation.x = pitch1;
+
+          baseAngle2 -= 0.0034;
+          const angle2 = baseAngle2 - scrollOrbitOffset * 0.8;
+          satObj2.sat.position.x = Math.cos(angle2) * orbitRadius2;
+          satObj2.sat.position.z = Math.sin(angle2) * orbitRadius2;
+          satObj2.sat.rotation.y = -angle2 - Math.PI / 2;
+          const pitch2 = Math.cos(angle2) * 0.24;
+          satObj2.portWing.rotation.x = pitch2;
+          satObj2.starboardWing.rotation.x = pitch2;
+
+          renderer.render(scene, camera);
+        }
+        animateEarthScene();
+      }
+
+      /* ============================================================
+         B. REAL 3D LIGHT-COLORED MINI-SATELLITE AROUND PROFILE PHOTO
+         ============================================================ */
+      const profileSatContainer = document.getElementById('profile-3d-sat-canvas');
+      if (profileSatContainer) {
+        const pSize = 520;
+        const pScene = new THREE.Scene();
+        const pCamera = new THREE.PerspectiveCamera(34, 1, 0.1, 50);
+        pCamera.position.set(0, 0.95, 7.2);
+        pCamera.lookAt(0, 0, 0);
+
+        const pRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        pRenderer.setSize(pSize, pSize);
+        pRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        profileSatContainer.appendChild(pRenderer.domElement);
+
+        pScene.add(new THREE.AmbientLight(0xFFFFFF, 1.35));
+        const pDirLight = new THREE.DirectionalLight(0xFFFBF5, 1.65);
+        pDirLight.position.set(4, 5, 6);
+        pScene.add(pDirLight);
+
+        const miniOrbitGroup = new THREE.Group();
+        miniOrbitGroup.rotation.z = -0.36;
+        miniOrbitGroup.rotation.x = 0.34;
+        pScene.add(miniOrbitGroup);
+
+        const miniRadius = 2.38;
+        const miniSoftRing = new THREE.Mesh(
+          new THREE.RingGeometry(miniRadius - 0.13, miniRadius + 0.13, 96),
+          new THREE.MeshBasicMaterial({
+            map: createSoftBlurredOrbitTexture(200, 90, 50),
+            transparent: true,
+            opacity: 0.55,
+            side: THREE.DoubleSide,
+            depthWrite: false
+          })
+        );
+        miniSoftRing.rotation.x = Math.PI / 2;
+        miniOrbitGroup.add(miniSoftRing);
+
+        const miniSolarTex = createLightSolarTexture(true);
+        const miniSatObj = createAerospaceSatellite(0xF3E5D0, 0xC85A32, foilBump, miniSolarTex, true);
+        miniSatObj.sat.scale.set(0.56, 0.56, 0.56);
+        miniOrbitGroup.add(miniSatObj.sat);
+
+        let miniAngle = 0.4;
+        function animateProfileMiniSat() {
+          requestAnimationFrame(animateProfileMiniSat);
+          miniAngle += 0.011;
+
+          const x = Math.cos(miniAngle) * miniRadius;
+          const z = Math.sin(miniAngle) * miniRadius;
+          miniSatObj.sat.position.set(x, 0, z);
+          miniSatObj.sat.rotation.y = -miniAngle + Math.PI / 2;
+          miniSatObj.sat.rotation.z = 0.18;
+
+          const wingTilt = Math.sin(miniAngle) * 0.25;
+          miniSatObj.portWing.rotation.x = wingTilt;
+          miniSatObj.starboardWing.rotation.x = wingTilt;
+
+          profileSatContainer.style.zIndex = z >= 0 ? '6' : '1';
+
+          pRenderer.render(pScene, pCamera);
+        }
+        animateProfileMiniSat();
+      }
+
+      const navAnchors = document.querySelectorAll('.nav-links a');
+      const sections = document.querySelectorAll('section');
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+        scrollOrbitOffset = progress * Math.PI * 2;
+
+        let currentId = 'home';
+        sections.forEach(sec => {
+          if (scrollY >= sec.offsetTop - 160) {
+            currentId = sec.getAttribute('id');
+          }
+        });
+        navAnchors.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
+        });
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>
